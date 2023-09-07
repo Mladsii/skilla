@@ -1,0 +1,59 @@
+from news.models import *
+
+user1 = User.objects.create_user(username = 'Anton')
+user2 = User.objects.create_user(username = 'Nikita')
+Autor.objects.create(autorUser=user1)
+Autor.objects.create(autorUser=user2)
+
+Category.objects.create(name_cat = 'sp')
+Category.objects.create(name_cat = 'pl')
+Category.objects.create(name_cat = 'ob')
+Category.objects.create(name_cat = 'cm')
+
+autor = Autor.objects.get(id=1)
+Post.objects.create(autor=autor1, st_or_nw= 'ar', header_post = 'someheader', test_post = 'somebigtext')
+Post.objects.create(autor=autor1, st_or_nw= 'ar', header_post = 'article2', test_post = 'lalalalalal')
+Post.objects.create(autor=autor1, st_or_nw= 'nw', header_post = 'news1', test_post = 'skillfactory')
+
+
+Post.objects.get(id=1).category.add(Category.objects.get(id=1))
+Post.objects.get(id=1).category.add(Category.objects.get(id=2))
+Post.objects.get(id=2).category.add(Category.objects.get(id=3))
+Post.objects.get(id=2).category.add(Category.objects.get(id=4))
+Post.objects.get(id=3).category.add(Category.objects.get(id=4))
+Post.objects.get(id=3).category.add(Category.objects.get(id=1))
+
+Comment.objects.create(post= Post.objects.get(id=1), user=Autor.objects.get(id=1).autorUser, text_comment = 'kruto', rating = 3)
+Comment.objects.create(post= Post.objects.get(id=1), user=Autor.objects.get(id=2).autorUser, text_comment = 'klass', rating = 5)
+Comment.objects.create(post= Post.objects.get(id=2), user=Autor.objects.get(id=2).autorUser, text_comment = 'dislike', rating = 1)
+Comment.objects.create(post= Post.objects.get(id=3), user=Autor.objects.get(id=1).autorUser, text_comment = 'horosh', rating = 4)
+
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=2).dislike()
+
+a=Autor.objects.get(id=1)
+a.update_rating()
+a.reit_pos_Autor
+
+
+
+ a= Autor.objects.order_by('-reit_pos_Autor')
+
+a= Autor.objects.order_by('-reit_pos_Autor')[:1]
+A
+
+<QuerySet [<Autor: Autor object (1)>]>
+
+
+
+Post.objects.all().order_by().values('data','user','post',rating)
+
+Comment.objects.all().values('post','user')
+Comment.objects.filter(post= 1).values('text_comment')
+
+Autor.objects.all().values('text_comment', 'id')
+
+
+
+
+
