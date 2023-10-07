@@ -1,0 +1,57 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+{% load custom_tags %}
+{% load censor %}
+
+
+{% block title %}
+Posts
+{% endblock title %}
+
+{% block content %}
+   <h1>Все товары</h1>
+   <h3>{{ time_now|date:'M d Y' }}</h3>
+   <h3> {{ next_sale|default_if_none:"Чуть позже сообщим о распродаже!" }} </h3>
+
+   <hr>
+   {% if news %}
+       <table>
+           <tr>
+               <td>Номер</td>
+               <td>Название</td>
+               <td>DATA</td>
+               <td>Описание</td>
+               <td>Категория</td>
+
+               <td>Рейтинг</td>
+               <td>Автор</td>
+
+           </tr>
+
+           {% for post in news %}
+           <tr>
+               <td>{{post.id}}</td>
+               <td>{{ post.header_post }}</td>
+
+               <td>{{post.data}} </td>
+               <td>{{ post.test_post|truncatechars:20}}</td>
+               <td>
+                    {% for cat in post.category.all %}
+                        {{ cat.name_cat }}
+                        {% endfor %}
+                </td>
+               <!-- Используем наш фильтр -->
+
+               <td>{{ post.autor.reit_pos_Autor|currency}}</td>
+               <td>{{ post.autor.autorUser }}</td>
+
+
+           </tr>
+           {% endfor %}
+
+       </table>
+   {% else %}
+       <h2>Товаров нет!</h2>!
+   {% endif %}
+{% endblock content %}

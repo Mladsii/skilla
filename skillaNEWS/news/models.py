@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
+from django.urls import reverse
 # Create your models here.
 
 class Autor(models.Model):  # наследуемся от класса Model
@@ -40,6 +41,7 @@ class Category(models.Model):
 
 
 
+
 class Post(models.Model):
     autor = models.ForeignKey(Autor, on_delete= models.CASCADE)
 
@@ -56,7 +58,7 @@ class Post(models.Model):
     st_or_nw = models.CharField(max_length=2, choices=POST,default=article)
     header_post=models.CharField(max_length=255)
     test_post = models.TextField()
-    rating = models.FloatField(default=0)
+    rating = models.FloatField()
     category =models.ManyToManyField(Category, through = 'PostCategory')
 
     def like(self):
@@ -83,12 +85,13 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     text_comment = models.TextField()
     data = models.DateTimeField(auto_now_add=True)
-    rating =models.FloatField()
+    rating =models.FloatField(default=0.0)
 
     def like(self):
-        self.reit_post += 1
+        self.rating += 1
         self.save()
 
     def dislike(self):
         self.rating -= 1
         self.save()
+

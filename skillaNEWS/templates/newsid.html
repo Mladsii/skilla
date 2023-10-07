@@ -1,0 +1,38 @@
+{% extends 'flatpages/default.html' %}
+{% load censor %}
+{% block title %}
+Posts
+{% endblock title %}
+
+{% block content %}
+
+
+   <h3>{{ time_now|date:'d M Y' }}</h3>
+
+
+   <hr>
+   {% if newsid %}
+       <table>
+           <tr>
+               <td>Заголовок</td>
+               <td>дата</td>
+               <td>Текст</td>
+           </tr>
+
+
+           <tr>
+
+               <td>{{ newsid.header_post|censor}}</td>
+               <td>{{ newsid.data}}</td>
+               <td>{{ newsid.test_post|censor}}</td>
+
+           </tr>
+
+
+       </table>
+   {% else %}
+       <h2>Товаров нет!</h2>
+   {% endif %}
+
+
+{% endblock content %}
