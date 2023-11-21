@@ -21,6 +21,8 @@ class Autor(models.Model):  # наследуемся от класса Model
         self.reit_pos_Autor = pRat * 3 + cRat
         self.save()
 
+    def __str__(self):
+        return f"{self.autorUser}"
 
 
 
@@ -39,12 +41,16 @@ class Category(models.Model):
     name_cat = models.CharField(max_length= 2, unique=True,
                            choices=CATEGORY)
 
+    def __str__(self):
+        return f"{self.name_cat}"
 
 
 
 class Post(models.Model):
     autor = models.ForeignKey(Autor, on_delete= models.CASCADE)
 
+    def __str__(self):
+        return f'{self.category}'
 
     article = 'ar'
     news = 'nw'
@@ -73,6 +79,8 @@ class Post(models.Model):
     def preview(self):
         return self.test_post[0:123] + '....'
 
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.id)])
 
 
 class PostCategory(models.Model):
