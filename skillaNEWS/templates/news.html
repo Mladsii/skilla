@@ -20,10 +20,16 @@ Posts
        <input type="submit" value="Найти" />
    </form>
 
+    {% if perms.news.add_product %}
+    <a href="{% url 'post_create' %}">Добавить товар</a>
+    {% endif %}
+
    <h3>{{ time_now|date:'M d Y' }}</h3>
    <h3> {{ next_sale|default_if_none:"Чуть позже сообщим о распродаже!" }} </h3>
 
    <hr>
+
+
    {% if news %}
        <table>
            <tr>
@@ -36,7 +42,13 @@ Posts
                <td>Рейтинг</td>
                <td>Автор</td>
 
+
+                {% if perms.news.change_post or perms.news.delete_post %}
+                <td>Действия</td>
+                {% endif %}
+
            </tr>
+
 
            {% for post in news %}
            <tr>
@@ -51,10 +63,22 @@ Posts
                         {% endfor %}
                 </td>
                <td>{{post.st_or_nw}}</td>
+
+               <td>
+                    {# А здесь доступ для каждой ссылки теперь будем проверять отдельно #}
+                    {% if perms.news.change_post %}
+                    <a href="{% url 'post_update' pk=post.id %}">Изменить</a>
+                    {% endif %}
+                   {% if perms.news.delete_post %}
+                    <a href="{% url 'post_delete' post.id %}">Удалить</a>
+                    {% endif %}
+
+                </td>
                <!-- Используем наш фильтр -->
 
                <td>{{ post.autor.reit_pos_Autor|currency}}</td>
                <td>{{ post.autor.autorUser }}</td>
+
 
 
            </tr>
