@@ -2,6 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.urls import reverse
+from django.db import models
+from django.core.validators import MinValueValidator
+from django.urls import reverse
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 class Autor(models.Model):  # наследуемся от класса Model
@@ -41,8 +46,22 @@ class Category(models.Model):
     name_cat = models.CharField(max_length= 2, unique=True,
                            choices=CATEGORY)
 
+    subscribers = models.ManyToManyField(User, related_name='categories')
+
     def __str__(self):
         return f"{self.name_cat}"
+
+class Subscriber(models.Model):
+    user = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE,
+        related_name='subscriptions',
+    )
+    category = models.ForeignKey(
+        to='Category',
+        on_delete=models.CASCADE,
+        related_name='subscriptions',
+    )
 
 
 
@@ -102,4 +121,6 @@ class Comment(models.Model):
     def dislike(self):
         self.rating -= 1
         self.save()
+
+
 

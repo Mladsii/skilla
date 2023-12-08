@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'news',
+    'news.apps.NewsConfig',
 
     'django_filters',
+    "django_apscheduler",
 
     'django.contrib.sites',
     'django.contrib.flatpages',
@@ -138,6 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+SITE_URL = 'http://127.0.0.1:8000'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -154,3 +156,25 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "ma.mironoff2017"
+EMAIL_HOST_PASSWORD = "sexnxdbsdxzjrpcu"
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+
+DEFAULT_FROM_EMAIL = "ma.mironoff2017@yandex.ru"
+
+SERVER_EMAIL = "ma.mironoff2017@yandex.ru"
+MANAGERS = (
+    ('Ivan', 'ivan@yandex.ru'),
+    ('Petr', 'petr@yandex.ru'),
+)
+
+ADMINS = (
+    ('anton', 'anton@yandex.ru'),
+)
