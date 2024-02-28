@@ -264,7 +264,7 @@ LOGGING = {
             'formatter': 'error'
 
         },
-        'securiry':{
+        'security':{
             'level': 'INFO',
             'class': 'logging.FileHandler',
             'filename': 'security.log',
@@ -307,16 +307,16 @@ LOGGING = {
         },
         'django.security':{
             'level':'ERROR',
-            'handlers':['simple_sec'],
+            'handlers':['security'],
             'propagate': False,
         },
     },
 
     'filters': {
-        'require_debug_false ':{
+        'require_debug_false':{
             '()' : 'django.utils.log.RequireDebugFalse',
         },
-        'require_debug_true ':{
+        'require_debug_true':{
             '()' : 'django.utils.log.RequireDebugTrue',
         },
     },

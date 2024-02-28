@@ -81,3 +81,7 @@ INFO 2024-02-17 18:52:52,821 autoreload 23001 8461916992 /Users/maksimmironov/Py
 INFO 2024-02-17 18:52:53,189 autoreload 23058 8461916992 Watching for file changes with StatReloader
 INFO 2024-02-17 18:57:33,373 autoreload 23058 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
 INFO 2024-02-17 18:57:33,813 autoreload 23359 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-28 16:09:49,179 autoreload 13910 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-28 16:10:40,090 autoreload 13910 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+INFO 2024-02-28 16:10:40,478 autoreload 13970 8461916992 Watching for file changes with StatReloader
+WARNING 2024-02-28 16:10:42,495 basehttp 13970 6168047616 "GET / HTTP/1.1" 404 2277

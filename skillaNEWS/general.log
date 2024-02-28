@@ -1,0 +1,4 @@
+INFO 2024-02-28 16:09:49,179 autoreload Watching for file changes with StatReloader
+INFO 2024-02-28 16:10:40,090 autoreload /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+INFO 2024-02-28 16:10:40,478 autoreload Watching for file changes with StatReloader
+WARNING 2024-02-28 16:10:42,495 basehttp "GET / HTTP/1.1" 404 2277
