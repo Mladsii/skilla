@@ -1,0 +1,83 @@
+INFO Watching for file changes with StatReloader
+WARNING Not Found: /
+WARNING "GET / HTTP/1.1" 404 2277
+INFO "GET /news/ HTTP/1.1" 200 9551
+INFO /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+WARNING Not Found: /
+WARNING "GET / HTTP/1.1" 404 2277
+INFO "GET /news/ HTTP/1.1" 200 9551
+INFO /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+INFO 2024-02-17 18:37:01,003 autoreload 21996 8461916992 Watching for file changes with StatReloader
+WARNING 2024-02-17 18:37:04,152 log 21996 6200029184 Not Found: /
+WARNING 2024-02-17 18:37:04,152 basehttp 21996 6200029184 "GET / HTTP/1.1" 404 2277
+INFO 2024-02-17 18:37:09,243 basehttp 21996 6200029184 "GET /accounts/login/ HTTP/1.1" 200 2191
+INFO 2024-02-17 18:41:11,627 autoreload 21996 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/news/views.py changed, reloading.
+INFO 2024-02-17 18:41:12,001 autoreload 22294 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-17 18:42:28,027 autoreload 22294 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/news/views.py changed, reloading.
+INFO 2024-02-17 18:42:28,407 autoreload 22385 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-17 18:42:51,321 autoreload 22385 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/news/views.py changed, reloading.
+INFO 2024-02-17 18:42:51,634 autoreload 22413 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-17 18:43:20,863 autoreload 22413 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/news/views.py changed, reloading.
+INFO 2024-02-17 18:43:21,231 autoreload 22446 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-17 18:43:35,924 autoreload 22446 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/news/views.py changed, reloading.
+INFO 2024-02-17 18:43:36,269 autoreload 22464 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-17 18:44:13,855 autoreload 22464 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/news/views.py changed, reloading.
+INFO 2024-02-17 18:44:14,219 autoreload 22508 8461916992 Watching for file changes with StatReloader
+WARNING 2024-02-17 18:44:28,805 log 22508 6137556992 Not Found: /
+WARNING 2024-02-17 18:44:28,805 basehttp 22508 6137556992 "GET / HTTP/1.1" 404 2277
+ERROR 2024-02-17 18:44:32,518 log 22508 6137556992 Internal Server Error: /news/
+Traceback (most recent call last):
+  File "/Users/maksimmironov/PycharmProjects/skillaNEWS/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/maksimmironov/PycharmProjects/skillaNEWS/venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/maksimmironov/PycharmProjects/skillaNEWS/venv/lib/python3.11/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/maksimmironov/PycharmProjects/skillaNEWS/venv/lib/python3.11/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/maksimmironov/PycharmProjects/skillaNEWS/venv/lib/python3.11/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/news/views.py", line 36, in get_queryset
+    queryset = super().get_queryset()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/maksimmironov/PycharmProjects/skillaNEWS/venv/lib/python3.11/site-packages/django/views/generic/list.py", line 45, in get_queryset
+    queryset = queryset.order_by(*ordering)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/maksimmironov/PycharmProjects/skillaNEWS/venv/lib/python3.11/site-packages/django/db/models/query.py", line 1659, in order_by
+    obj.query.add_ordering(*field_names)
+  File "/Users/maksimmironov/PycharmProjects/skillaNEWS/venv/lib/python3.11/site-packages/django/db/models/sql/query.py", line 2221, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "/Users/maksimmironov/PycharmProjects/skillaNEWS/venv/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'data' into field. Choices are: id, name_cat, post, postcategory, subscribers, subscriptions
+ERROR 2024-02-17 18:44:32,520 basehttp 22508 6137556992 "GET /news/ HTTP/1.1" 500 95531
+INFO 2024-02-17 18:45:08,732 autoreload 22508 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/news/views.py changed, reloading.
+INFO 2024-02-17 18:45:09,088 autoreload 22578 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-17 18:45:11,749 basehttp 22578 6192787456 "GET /news/ HTTP/1.1" 200 9551
+INFO 2024-02-17 18:48:56,835 autoreload 22578 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+INFO 2024-02-17 18:48:57,240 autoreload 22808 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-17 18:49:17,077 autoreload 22808 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+INFO 2024-02-17 18:49:17,409 autoreload 22833 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-17 18:51:59,374 autoreload 22833 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+INFO 2024-02-17 18:51:59,765 autoreload 23001 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-17 18:52:52,821 autoreload 23001 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+INFO 2024-02-17 18:52:53,189 autoreload 23058 8461916992 Watching for file changes with StatReloader
+INFO 2024-02-17 18:57:33,373 autoreload 23058 8461916992 /Users/maksimmironov/PycharmProjects/skillaNEWS/skillaNEWS/skillaNEWS/settings.py changed, reloading.
+INFO 2024-02-17 18:57:33,813 autoreload 23359 8461916992 Watching for file changes with StatReloader

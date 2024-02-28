@@ -1,7 +1,13 @@
 from datetime import datetime
+import logging
+
+logger = logging.getLogger(__name__)
+
+from django.core.cache import cache
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
+
 
 from django.urls import reverse_lazy
 
@@ -18,6 +24,7 @@ from .forms import PostForm
 
 
 class PostList(ListView):
+
     model = Post
     ordering = '-data'
     template_name = 'news.html'
@@ -63,6 +70,17 @@ class PostDetail(DetailView):
    model = Post
    template_name = 'news.html'
    context_object_name = 'news'
+   queryset = Post.objects.all()
+
+   def get_object(self, *args, **kwargs):  # переопределяем метод получения объекта, как ни странно
+       obj = cache.get(f'product-{self.kwargs["pk"]}',
+                       None)  # кэш очень похож на словарь, и метод get действует так же. Он забирает значение по ключу, если его нет, то забирает None.
+
+       # если объекта нет в кэше, то получаем его и записываем в кэш
+       if not obj:
+           obj = super().get_object(queryset=self.queryset)
+           cache.set(f'post-{self.kwargs["pk"]}', obj)
+           return obj
 
 
 
